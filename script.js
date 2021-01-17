@@ -1,0 +1,1 @@
+var str2 = "React and Redux";
