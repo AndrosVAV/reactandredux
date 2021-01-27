@@ -111,3 +111,161 @@ var defaulPerson = {
 //СТРЕЛОЧНЫЕ ФУНКЦИИ(C.26);
 
 
+//Тадиционная функция
+/*
+var lordify = function(firstName){
+    return `${firstName} of Canterbury`
+};
+
+//console.log(lordify("Dale"));
+//console.log(lordify("Daryle"));
+
+
+
+//Использование стрелочной функции(c.27);
+//Если принимается один аргумент круглые кобки можно убрать окружающие аргументы
+//var lordify = firstName => `${firstName} of canterbury`
+//console.log(lordify("Daryle"));
+
+//если прим.более одного элемента то их следует заключить в круглые скобки
+//старый синтаксис
+var lordify = function(firstName,land){
+    return `${firstName} of ${land}`
+};
+//console.log(lordify("Daryle","MaryLand"));
+
+
+//Новый синтаксис
+
+var lordify = (firstName,land) => `${firstName} of ${land}`;
+//console.log(lordify("Daryle","Culpepper"));
+
+
+
+
+
+
+//Точка с запятой является необязательным элементом в JS
+//Принцип минимализма - зачем ставить её если она не требуется
+//Ислючить использование ненужных элементов синтаксиса
+
+
+
+
+
+//Если тело функции состоит более чем из одной строчки следует заключать его в фигурные скобки
+//старый синтаксис
+
+var lordify = function(firstName,land){
+    if(!firstName){
+        throw new Error("A firstName is required to lordify");
+    }
+    if(!land){
+        throw new Error("A lord must have a land");
+    }
+    return `${firstName} of ${land}`;
+}
+
+
+
+//Новый синтаксис
+
+var lordify = (firstName,land) =>{
+    if(!firstName){
+        throw new Error("A firstName is required to lordify");
+    }
+    if(!land){
+        throw new Error("A lord must have a land");
+    }
+    return `${firstName} of ${land}`;
+}
+
+//console.log(lordify("Kelly","Sonoma"));
+//console.log(lordify("Dave"));
+
+
+
+
+
+
+
+//Стрелочные ф.не изолируют ключевое слово this.Например оно представляет в ф.
+//обратного вызова setTimeout нечто,но не обьект tahoe:
+
+var tahoe = {
+    resorts: ["Kirkwood","Squaw","Alpine","Heaventy","Northstar"],
+    print: function(delay = 1000){
+        setTimeout(function(){
+            console.log(this.resorts.join(","));
+        },delay)
+    }
+};
+
+//tahoe.print();//undefined
+
+//ошибка использование метода join для обьекта
+//представленного ключевым словом this
+
+
+
+
+//Стрелочная ф.защитит область видимости this:
+var tahoe = {
+    resorts: ["Kirkwood","Squaw","Alpine","Heaventy","Northstar"],
+    print: function(delay = 1000){
+        setTimeout(() =>{
+            console.log(this.resorts.join(","));
+        },delay)
+    }
+};
+//tahoe.print();//Kirkwood,Squaw,Alpine,Heaventy,Northstar
+
+
+
+
+
+
+//Об области видимости нужно помнить всегда
+//Стрелочные ф. не изолируют область видимости this:
+
+var tahoe = {
+    resorts: ["Kirkwood","Squaw","Alpine","Heaventy","Northstar"],
+    print: (delay = 1000) =>{
+        setTimeout(() =>{
+            console.log(this.resorts.join(","));
+        },delay)
+    }
+};
+//tahoe.print();//resorts is undefined
+
+
+
+//Замена ф.print на стрелочную означает что this указывает на window
+
+var tahoe = {
+    resorts: ["Kirkwood","Squaw","Alpine","Heaventy","Northstar"],
+    print: (delay = 1000) =>{
+        setTimeout(() =>{
+            console.log(this === window);
+        },delay)
+    }
+};
+//tahoe.print();//true
+
+
+
+
+
+//Чтобы зафиксировать this можно воспользоваться обычной функцией
+
+var tahoe = {
+    resorts: ["Kirkwood","Squaw","Alpine","Heaventy","Northstar"],
+    print: function(delay = 1000){
+        setTimeout(() =>{
+            console.log(this === window);
+        },delay)
+    }
+};
+//tahoe.print();//false
+
+*/
