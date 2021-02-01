@@ -268,4 +268,170 @@ var tahoe = {
 };
 //tahoe.print();//false
 
+
+
+
+
+
+
+//Транспиляция ES6(c.30);
+
+
+
+
+
+//Дестуктуризация(c.31);
+
+var sandwich = {
+    bread : "dutch crunch",
+    meat : "tuna",
+    cheese : "swiss",
+    topping : ["lettuce","tomato","mustard"]
+};
+var {bread,meat} = sandwich;
+//console.log(bread,meat);
+
+bread = "garlic";
+meat = "turkey";
+
+//console.log(bread);
+//console.log(meat);
+//console.log(sandwich.bread,sandwich.meat);
+
+
+
+//Деструктурируем поступающие аргументы функций(c.32);
+
+var lordify = regularPerson =>{
+    //console.log(`${regularPerson.firstName} of Canterbury`);
+}
+var regularPerson = {
+    firstName : "Bill",
+    lastName : "Wilson"
+};
+lordify(regularPerson);//Bill of Canterbury
+
+
+
+
+
+var lordify = ({firstname}) =>{
+   //console.log(`${firstname} of Canterbury`); 
+}
+
+var regularPerson = {
+    firstname : "Bill",
+    lastname : "Wilson"
+};
+lordify(regularPerson);
+
+
+
+
+//Дестуктуризация значений из массивов(c.32);
+
+var [firstResort] = ["Kirkwood","Squaw","Alpine"];
+//console.log(firstResort);
+
+
+var [,,thirdResort] = ["Kirkwood","Squaw","Alpine"];
+//console.log(thirdResort);
+
+
+
+
+//Расширение обьектных литералов(c.33);
+
+
+var name = "Talles";
+var elevetion = 9738;
+
+var funHike = {name,elevetion};
+//console.log(funHike);//Object { name: "Talles", elevetion: 9738 }
+
+
+
+
+
+var name = "Talles";
+var elevetion = 9738;
+var print = function(){
+    //console.log(`Mt. ${this.name} is ${this.elevetion} feet tall`);
+};
+var funHike = {name,elevetion,print};
+
+funHike.print();//Mt. Talles is 9738 feet tall
+
+//Для доступа к ключам исп ключевое слово this
+
+
+
+
+
+//При определении методов больше не нужно прибегать к ключевому слову function
+//Старый синтаксис
+
+var skier = {
+    name : "name",
+    sound : "sound",
+    ppowderYell : function(){
+        var yell = this.sound.toUpperCase();
+        console.log(`${yell} ${yell} ${yell}!!!`);
+    },
+    speed : function(mph){
+        this.speed = mph;
+        console.log("speed: ",mph);
+    }
+};
+
+
+
+//Новый синтаксис
+var skier = {
+    name,
+    sound,
+    ppowderYell(){
+        var yell = this.sound.toUpperCase();
+        console.log(`${yell} ${yell} ${yell}!!!`);
+    },
+    speed(mph){
+        this.speed = mph;
+        console.log("speed: ",mph);
+    }
+};
+
+
+
+
+
+//Оператор распространения(c.34);
+//имеет вид(...)
+//Позволяет обьединять содержимое массивов
+
+var peaks = ["Tallas","Ralston","Rose"];
+var canoys = ["Ward","Blackwood"];
+var tahoe = [...peaks,...canoys];
+
+//console.log(tahoe.join(","));//Tallas,Ralston,Rose,Ward,Blackwood
+
+
+
+
+//Получаем посл.елемент массива с помощью Array.reverse
+
+var peaks = ["Tallas","Ralston","Rose"];
+var [last] = peaks.reverse();
+
+//console.log(last);//Rose
+//console.log(peaks);//Array(3) [ "Rose", "Ralston", "Tallas" ]
+
 */
+
+
+var peaks = ["Tallas","Ralston","Rose"];
+var [last] = [...peaks].reverse();
+
+//console.log(last);//Rose
+//console.log(peaks.join(","));//Tallas,Ralston,Rose
+
+
