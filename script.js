@@ -425,13 +425,146 @@ var [last] = peaks.reverse();
 //console.log(last);//Rose
 //console.log(peaks);//Array(3) [ "Rose", "Ralston", "Tallas" ]
 
-*/
-
-
-var peaks = ["Tallas","Ralston","Rose"];
-var [last] = [...peaks].reverse();
+/var peaks = ["Tallas","Ralston","Rose"];
+//var [last] = [...peaks].reverse();
 
 //console.log(last);//Rose
 //console.log(peaks.join(","));//Tallas,Ralston,Rose
 
 
+
+
+
+
+//Данный оператор служит для сбора аргументов функции в массив(c.35)
+function directions(...args){
+    var [start,...remaining] = args
+    var [finish,...stops] = remaining.reverse()
+
+//console.log(`drive through ${args.length} towns`)//drive through 5 towns
+//console.log(`start in ${start}`)//start in Truckee
+//console.log(`the distanation is ${finish}`)//the distanation is Tahoma
+//console.log(`stoping ${stops.length} times in between`)//stoping 3 times in between 
+}
+
+directions(
+    "Truckee",
+    "Tahoe city",
+    "Sunnyside",
+    "Homewood",
+    "Tahoma"
+)
+
+
+
+
+//Обьединение 2-ух обьектов в третий(c.36)
+
+var morning = {
+    breakfast : "oatmeal",
+    lunch : "peanut butter and jelly"
+}
+
+var dinner = "mac and cheese"
+
+var backpackingMeals = {
+    ...morning,
+    dinner
+}
+
+//console.log(backpackingMeals)//Object { breakfast: "oatmeal", lunch: "peanut butter and jelly", dinner: "mac and cheese" }
+
+
+
+
+
+
+
+
+
+
+//Промисы(Обещания)(c.36)
+
+//Представляет способ разобраться в асинхронном поведении
+//При выдаче асинхронного запроса может произойти одно из двух:
+//Все пойдет так как мы надеялись или же 
+//случиться ошибка
+
+const getFakeMembers = count => new Promise((resolve,reject) =>{
+    const api = `https://api.randomuser.me/?nat=US&result =${count}`
+    const request = new XMLHttpResult()
+    request.open("GET",api)
+    request.onload = () =>
+    (request.status === 200)?
+    resolve(JSON.parse(request.response).results):
+    reject(Error(request.statusText))
+    request.onneror = (err) => reject(err)
+    request.send()
+})
+
+
+
+
+//Функция then может быть встроена в цепочку для выполнения каких либо действий
+//после выполнения промиса
+//Это называется композицией
+
+getFakeMembers(5).then(
+   members => console.log(members),
+   err => console.error(
+       new Error("cannot load members from randmuser.me")
+   )
+)
+//Промис делает запрос к API
+//Если он завершится удачно то данные будут загруженны
+//В противном случае выдаётся ошибка:
+//Error: cannot load members from randmuser.me
+
+
+
+//Промисы облегчают работу с асинхронными запросами
+//т.к. в js приходиться работать с большим обьёмом асинхронно запрашиваемых данных
+
+
+
+
+
+
+
+
+
+
+//Классы(c.37)
+
+//Старый синтаксис
+function Vacation(destination,length){
+    this.destination = destination
+    this.length = length
+}
+
+Vacation.prototype.print = function(){
+    //console.log(this.destination + " | " + this.length + "days")
+}
+
+var maul = new Vacation("Maul",7);
+//maul.print();//Maul | 7days
+
+
+//Новый синтаксис
+class Vacation{
+    constructor(destination,length){
+     this.destination = destination
+    this.length = length   
+    }
+        print(){
+        //console.log(`${this.destination} will take ${this.length} days`)
+    }
+}
+
+const trip = new Vacation("Santiago,Chile",7);
+//trip.print();//Santiago,Chile will take 7 days
+
+*/
+
+
+//c.38
