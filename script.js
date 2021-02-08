@@ -471,8 +471,10 @@ var backpackingMeals = {
     ...morning,
     dinner
 }
-
 //console.log(backpackingMeals)//Object { breakfast: "oatmeal", lunch: "peanut butter and jelly", dinner: "mac and cheese" }
+
+
+
 
 
 
@@ -545,9 +547,10 @@ function Vacation(destination,length){
 Vacation.prototype.print = function(){
     //console.log(this.destination + " | " + this.length + "days")
 }
-
 var maul = new Vacation("Maul",7);
 //maul.print();//Maul | 7days
+
+
 
 
 //Новый синтаксис
@@ -556,15 +559,102 @@ class Vacation{
      this.destination = destination
     this.length = length   
     }
-        print(){
-        //console.log(`${this.destination} will take ${this.length} days`)
+    print(){
+    //console.log(`${this.destination} will take ${this.length} days`)
     }
 }
-
 const trip = new Vacation("Santiago,Chile",7);
 //trip.print();//Santiago,Chile will take 7 days
+
+
+
+
+
+
+//Название всех типов должны начинаться с прописных букв
+//Имена всех классов мы будем записывать исходя из этого правила
+
+//Например чтобы создать экиперовку (gear)класс Vacation
+//можно расширить классом Expedition(c.38);
+
+class Expedition extends Vacation{
+    constructor(destination,length,gear){
+    super(destination,length)
+    this.gear = gear
+}
+print(){
+    super.print()
+    console.log(`Bring ytour ${this.gear.join("and your ")}`)
+}
+}
+const trip = new Expedition("Mt.Whitney",3,
+    ["sunglasses","prayer flags","camera"])
+
+trip.print()
+
+
+
+
+
+
+
+
+
+
+//МОДУЛИ ES6(C.39);
+//2-а варианта:
+//Экспорт сразу нескольких обьектов JS из одного модуля
+//Экспорт по одному обьекту из каждого модуля
+
+//Пример1  Файл./text-helpers.js   экспортируется модуль и 2-е функции
+
+export const print(message) => log(message,new Date())
+export const log(message,timestamp) => 
+//console.log(`${timestamp.toString()}: ${message}`)
+
+
+
+//Экспорт из модуля только одной переменной с помощью инструкции export default
+//Пример2 Файл./mt-freel.js   
+
+const freel = new Expedition("Mt.Freel",2,["water","snack"])
+export default freel
+
+
+
+//Модули могут использоваться в других файлах JS с помощью инструкции import
+//Модули в кот.применяется export default импортируется в одну переменную
+import {print,log}from "./text-helpers"
+import freel from "./mt-freel"
+
+print("printing a message")
+log("logging a message")
+
+freel.print()
+
+
+
+//Для переменных модуля можно задать локальную обл видимости
+//под другими именами переменных:
+
+import {print as p,log as l} from "./text-helpers"
+
+p("printing a message")
+l("logging a message")
+
+
+
+//Можно импортировать всё в одну переменную с помощью знака *
+
+import * as fns from "./text-helpers"
 
 */
 
 
-//c.38
+
+
+
+
+
+
+//Common JS(c.41);
