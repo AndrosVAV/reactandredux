@@ -19,18 +19,18 @@ var str2 = "React and Redux";
 var tropic = "Javascript";
 if(tropic){
     var tropic = "React";
-    console.log("block",tropic);
+    console.log("block",tropic);//block React
 }
-console.log("global",tropic);
+console.log("global",tropic);//global React
 
-
+//Применение let защищает значение глобальной переменной
 
 var tropic = "Javascript";
 if(tropic){
     let tropic = "React";
-    console.log("block",tropic);
+    console.log("block",tropic);//block React
 }
-console.log("global",tropic);
+console.log("global",tropic);//global Javascript
 
 
 
@@ -44,7 +44,7 @@ var div,
         }
         container.appendChild(div);
     };
-//Переменная i равна 5 для каждого треугольника
+//Переменная i равна 5 для каждого прямоугольника
 
     
 
@@ -57,7 +57,7 @@ for(let i = 0;i < 5;i++){
     }
     container.appendChild(div);
 };
-//При щелчке на любой треугольник будет отображаться значение i;
+//При щелчке на любой прямоугольник будет отображаться значение i;
 //Область видимости i защищена с помощью let
 
 
@@ -71,6 +71,7 @@ for(let i = 0;i < 5;i++){
 //console.log(lastName + "," + firstName + " " + middName);
 //console.log(`${lastName},${firstName}${middName}`);
 
+//${} сюда может быть добавлен любой код JS возвращающий значения
 //Шаблонные строки оставляют пробельные символы в неприкосновенности
 
 
@@ -84,7 +85,7 @@ for(let i = 0;i < 5;i++){
 function logActivity(name = "Shane McConkey",activity = "skiing"){
     console.log(`${name} loves ${activity}`);
 }
-//logActivity();
+//logActivity();//Shane McConkey loves skiing
 
 
 var defaulPerson = {
@@ -99,7 +100,7 @@ var defaulPerson = {
         console.log(`${p.name.first} loves ${p.favActivity}`);
     };
 
-    //logActivity();
+    //logActivity();//Shane loves skiing
 */
 
 
@@ -117,8 +118,8 @@ var lordify = function(firstName){
     return `${firstName} of Canterbury`
 };
 
-//console.log(lordify("Dale"));
-//console.log(lordify("Daryle"));
+//console.log(lordify("Dale"));//Dale of Canterbury
+//console.log(lordify("Daryle"));//Daryle of Canterbury
 
 
 
@@ -405,6 +406,7 @@ var skier = {
 
 
 //Оператор распространения(c.34);
+
 //имеет вид(...)
 //Позволяет обьединять содержимое массивов
 
@@ -649,9 +651,6 @@ l("logging a message")
 import * as fns from "./text-helpers"
 
 */
-
-
-
 
 
 
