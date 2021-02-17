@@ -126,7 +126,7 @@ var lordify = function(firstName){
 //Использование стрелочной функции(c.27);
 //Если принимается один аргумент круглые кобки можно убрать окружающие аргументы
 //var lordify = firstName => `${firstName} of canterbury`
-//console.log(lordify("Daryle"));
+//console.log(lordify("Daryle"));//Daryle of canterbury
 
 //если прим.более одного элемента то их следует заключить в круглые скобки
 //старый синтаксис
@@ -275,6 +275,8 @@ var tahoe = {
 
 
 
+
+
 //Транспиляция ES6(c.30);
 
 
@@ -290,14 +292,14 @@ var sandwich = {
     topping : ["lettuce","tomato","mustard"]
 };
 var {bread,meat} = sandwich;
-//console.log(bread,meat);
+//console.log(bread,meat);//dutch crunch tuna
 
 bread = "garlic";
 meat = "turkey";
 
-//console.log(bread);
-//console.log(meat);
-//console.log(sandwich.bread,sandwich.meat);
+//console.log(bread);//garlic
+//console.log(meat);//turkey
+//console.log(sandwich.bread,sandwich.meat);//dutch crunch tuna
 
 
 
@@ -316,24 +318,33 @@ lordify(regularPerson);//Bill of Canterbury
 
 
 
-var lordify = ({firstname}) =>{
-   //console.log(`${firstname} of Canterbury`); 
-}
 
+
+
+
+var lordify = ({firstname}) =>{
+   //console.log(`${firstname} of Canterbury`);
+
+}
 var regularPerson = {
     firstname : "Bill",
     lastname : "Wilson"
 };
-lordify(regularPerson);
+lordify(regularPerson);//Bill of Canterbury
+
+
 
 
 
 
 //Дестуктуризация значений из массивов(c.32);
-
+//Присвоение первого значения переменной
 var [firstResort] = ["Kirkwood","Squaw","Alpine"];
 //console.log(firstResort);
 
+
+
+//C помощью запятых можно пропустить ненужные значения
 
 var [,,thirdResort] = ["Kirkwood","Squaw","Alpine"];
 //console.log(thirdResort);
@@ -342,13 +353,16 @@ var [,,thirdResort] = ["Kirkwood","Squaw","Alpine"];
 
 
 //Расширение обьектных литералов(c.33);
-
+// является противоположностью деструктурирования
+// Это процесс реструктурирования или воссоединения
 
 var name = "Talles";
 var elevetion = 9738;
 
 var funHike = {name,elevetion};
 //console.log(funHike);//Object { name: "Talles", elevetion: 9738 }
+
+// Теперь это ключи обьекта funHike
 
 
 
@@ -432,6 +446,15 @@ var [last] = peaks.reverse();
 
 //console.log(last);//Rose
 //console.log(peaks.join(","));//Tallas,Ralston,Rose
+
+
+//Оператор распространения служит для получения некоторых выбранных элем массива
+
+var lakes = ["Donner","Marlette","Fallen","Leaf","Cascade"];
+var [first,...rest] = lakes;
+
+console.log(rest.join(","));//Marlette,Fallen,Leaf,Cascade
+
 
 
 
@@ -657,3 +680,26 @@ import * as fns from "./text-helpers"
 
 
 //Common JS(c.41);
+
+
+//Модульный шаблон поддерживаемый всеми версиями Node.js
+//Используются модули с Babel и Webpack
+// Благодаря CommonJS  обьекты JavaScript экспортируются с приминением module.exports
+
+
+//Пример.Файл ./txt-helpers.js       в этом примере есть ошибка?!
+/*
+const print(message) => log(message,new Date())
+const log(message,timestamp) =>
+    console.log(`${timestamp.toString()}: ${message}`);
+    
+module.exports = {print,log}
+// Common не поддерживает иструкцию import 
+//Вместо этого модули импортируются с помощью функции require:
+
+const {log,print} = require("./txt-helpers");
+
+*/
+
+
+
