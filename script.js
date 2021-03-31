@@ -617,7 +617,7 @@ const trip = new Expedition("Mt.Whitney",3,
 
 trip.print()
 
-
+*/
 
 
 
@@ -627,6 +627,8 @@ trip.print()
 
 
 //МОДУЛИ ES6(C.39);
+
+/*
 //2-а варианта:
 //Экспорт сразу нескольких обьектов JS из одного модуля
 //Экспорт по одному обьекту из каждого модуля
@@ -649,6 +651,8 @@ export default freel
 
 //Модули могут использоваться в других файлах JS с помощью инструкции import
 //Модули в кот.применяется export default импортируется в одну переменную
+
+
 import {print,log}from "./text-helpers"
 import freel from "./mt-freel"
 
@@ -703,3 +707,85 @@ const {log,print} = require("./txt-helpers");
 
 
 
+
+
+
+//Функциональное программирование
+
+
+//Значение понятия функциальности
+/*
+var log = function(message){
+console.log(message);
+};
+
+log("in JS function are variables");
+*/
+
+
+
+/*
+var log = message => console.log(message);
+log("in JavaScript function are variables");
+*/
+
+//Функции можно добавлять к обьектам
+
+/*
+const obj = {
+	message : "They can be added to object like variables",
+	log(message){
+	console.log(message);
+	}
+};
+obj.log(obj.message);
+*/
+
+//Функции в JS можно добавлять к массивам
+
+/*
+const messages = [
+    "They can be inserted into arrays",
+    message => console.log(message),
+    "like variables",
+    message => console.log(message)
+];
+messages[1](messages[0]);
+messages[3](messages[2]);
+*/
+
+//Ф.можно добавлять другим функциям в кач-ве аргументов
+
+/*
+const insideFn = logger =>
+logger("They can be sent to other function as arguments");
+
+insideFn(message => console.log(message));
+*/
+
+//Они могут возвращаться из других функций
+
+/*
+var createScream = function(logger){
+    return function(message){
+        logger(message.toUpperCase() + "!!!")
+    }
+}
+
+const scream = createScream(message => console.log(message));
+
+scream("Function can be returned from other functions");
+scream("createScream returns a function");
+scream("scream invokes that returned function");
+*/
+//Последние два примера были функц высшего порядка 
+
+/*
+const createScream = logger => message =>
+logger(message.toUpperCase() + "!!!");
+
+const scream = createScream(message => console.log(message));
+
+scream("Function can be returned from other functions");
+
+*/
