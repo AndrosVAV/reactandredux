@@ -718,11 +718,8 @@ const {log,print} = require("./txt-helpers");
 var log = function(message){
 console.log(message);
 };
-
 log("in JS function are variables");
 */
-
-
 
 /*
 var log = message => console.log(message);
@@ -771,7 +768,6 @@ var createScream = function(logger){
         logger(message.toUpperCase() + "!!!")
     }
 }
-
 const scream = createScream(message => console.log(message));
 
 scream("Function can be returned from other functions");
@@ -785,7 +781,48 @@ const createScream = logger => message =>
 logger(message.toUpperCase() + "!!!");
 
 const scream = createScream(message => console.log(message));
-
 scream("Function can be returned from other functions");
-
 */
+
+
+
+
+
+
+
+
+
+//Императивность и декларативность
+
+//императивный подход(Замена пробелов в строке дефисами);
+/*
+var str = "This is the midday with Chery Waters";
+var urlFriendly = "";
+
+for(var i = 0;i < str.length;i++){
+    if(str[i] === " "){
+    urlFriendly += "-";
+    }else{
+     urlFriendly += str[i];  
+    }
+}
+console.log(urlFriendly);//This-is-the-midday-with-Chery-Waters
+
+
+//декларативный подход
+
+var str = "This is the midday with Chery Waters";
+var urlFriendly = str.replace(/ /g,"-");
+
+console.log(urlFriendly);
+*/
+
+
+
+
+
+
+
+
+
+
