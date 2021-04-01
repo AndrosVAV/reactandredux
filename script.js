@@ -823,6 +823,103 @@ console.log(urlFriendly);
 
 
 
+//Функциональные концепции: неизменяемость,чистые функции,
+//преобразование данных,функции высшего порядка,рекурсия
+
+
+//неизменяемость
+//Для понятия сути работы посмотрим что значит изменение данных
+
+/*
+let color_lawn = {
+	title : "lawn",
+	color : "#00FF00",
+	rating : 0
+}
+
+function rateColor(color,rating){
+	color.rating = rating
+	return color
+}
+
+console.log(rateColor(color_lawn,5).rating);//5
+console.log(color_lawn.rating);//5
+
+
+//Функцию rateColor можно переписать
+// чтобы она не приносила вред оригиналу
+
+
+
+var rateColor = function(color,rating){
+	return Object.assign({},color,{rating : rating})
+};
+
+console.log(rateColor(color_lawn,5).rating);//5
+console.log(color_lawn.rating
+
+//ES6 стрелочная ф
+//ES7  ОПЕРАТОР РАСПРОСТРАНЕНИЯ ОБЬЕКТА
+
+const rateColor = (color,rating) =>
+	({
+	...color,
+	rating
+	})
+
+console.log(rateColor(color_lawn,5).rating);//5
+console.log(color_lawn.rating);//0
+
+//Возвращаемый обьект заключен в круглые скобки
+//при использовании стрелочных ф это обязательный шаг
+
+
+
+
+let list = [
+	{title : "Rad Red"},
+	{title : "Lawn"},
+	{title : "Party Pinc"}
+]
+
+var addColor = function(title,colors){
+colors.push({title : title})
+return colors;
+}
+console.log(addColor("Glan Green",list).length);//4
+console.log(list.length);//4
+
+//Но Array.push не является неизменяемой функцией
+//Это ф addColor изменяет исходный массив путем добавление
+// в него элемента
+//Чтобы сохранить неизменяемость массива colors
+//используем ф Array.concat
+
+
+
+//const addColor = (title,array) => array.concat({title})
+
+//console.log(addColor("Glan Green",list).length);//4
+//console.log(list.length);//3
+
+
+
+//Оператор распространения ES6 не только копирует обьекты но 
+// и обьединяет массивы
+
+const addColor = (title,list) => [...list,{title}]
+
+console.log(addColor("Glan Green",list).length);//4
+console.log(list.length);//3
+
+*/
+
+
+
+
+
+
+
 
 
 
