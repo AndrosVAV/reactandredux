@@ -918,7 +918,137 @@ console.log(list.length);//3
 
 
 
+//Чистые функции (с.50)
 
+//Функции с побочным еффектом
+
+/*
+var frederick = {
+    name : "Frederick Douglass",
+    canRead : false,
+    canWrite : false
+}
+
+function selfEducate(){
+    frederick.canRead = true
+    frederick.canWrite = true
+    return frederick
+}
+selfEducate()
+console.log(frederick);//Object { name: "Frederick Douglass", canRead: true, canWrite: true }
+
+
+
+var frederick = {
+    name : "Frederick Douglass",
+    canRead : false,
+    canWrite : false
+}
+
+const selfEducate = (person) =>{
+    person.canRead = true
+    person.canWrite = true
+    return person
+}
+
+console.log(selfEducate(frederick));//Object { name: "Frederick Douglass", canRead: true, canWrite: true }
+console.log(frederick);//Object { name: "Frederick Douglass", canRead: true, canWrite: true }
+
+
+
+
+var frederick = {
+    name : "Frederick Douglass",
+    canRead : false,
+    canWrite : false
+}
+
+const selfEducate = person =>
+    ({
+        ...person,
+    canRead : true,
+    canWrite : true
+    
+    })
+
+console.log(selfEducate(frederick));//Object { name: "Frederick Douglass", canRead: true, canWrite: true }
+console.log(frederick);//Object { name: "Frederick Douglass", canRead: false, canWrite: false }
+*/
+
+
+
+
+
+
+
+
+//Преобразование данных
+
+const schools = [
+    "Yorktown",
+    "Washington & Lee",
+    "Wakefield"
+]
+//console.log(schools.join(","));//Yorktown,Washington & Lee,Wakefield
+
+const wSchools = schools.filter(school => school[0] === "W")
+//console.log(wSchools);//Array [ "Washington & Lee", "Wakefield" ]
+
+
+const cutSchool = (cut,list) =>
+    list.filter(school => school !== cut)
+
+//console.log(cutSchool("Washington & Lee",schools).join(" * "));//Yorktown * Wakefield
+//console.log(schools.join("\n"));
+
+//const higSchools = schools.map(school => `${school} High School`);
+//console.log(higSchools.join("\n"));
+    //Yorktown High School
+    //Washington & Lee High School
+    //Wakefield High School
+//console.log(schools.join("\n"));
+    //Yorktown
+    //Washington & Lee
+    //Wakefield
+
+
+
+const higSchools = schools.map(school => ({name : school}))
+//console.log(higSchools);//Array(3) [ {…}, {…}, {…} ]
+//Массив содержит обьекты созданные из массива который содержит строки
+
+
+let schools_2 = [
+    {name : "Yorktown"},
+    {name : "Stranford"},
+    {name : "Washington & Lee"},
+    {name : "Wakefield"}
+]
+/*
+const editName = (oldName,name,arr) =>
+    arr.map(item =>{
+        if(item.name === oldName){
+            return {
+                ...item,
+                name
+            }
+        }else{
+            return item
+        }
+    })
+*/
+
+//const editName = (oldName,name,arr) =>
+//    arr.map(item =>(item.name === oldName)?
+//   ({...item,name}):
+//  item
+//  )
+
+
+let updateSchools = editName("Stranford","HB Woodlawn",schools_2);
+
+console.log(updateSchools[1]);//Object { name: "HB Woodlawn" }
+console.log(schools_2[1]);//Object { name: "Stranford" }
 
 
 
