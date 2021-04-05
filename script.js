@@ -983,7 +983,7 @@ console.log(frederick);//Object { name: "Frederick Douglass", canRead: false, ca
 
 
 //Преобразование данных
-
+/*
 const schools = [
     "Yorktown",
     "Washington & Lee",
@@ -1024,7 +1024,10 @@ let schools_2 = [
     {name : "Washington & Lee"},
     {name : "Wakefield"}
 ]
-/*
+
+
+
+
 const editName = (oldName,name,arr) =>
     arr.map(item =>{
         if(item.name === oldName){
@@ -1036,7 +1039,10 @@ const editName = (oldName,name,arr) =>
             return item
         }
     })
-*/
+
+
+
+
 
 //const editName = (oldName,name,arr) =>
 //    arr.map(item =>(item.name === oldName)?
@@ -1047,9 +1053,124 @@ const editName = (oldName,name,arr) =>
 
 let updateSchools = editName("Stranford","HB Woodlawn",schools_2);
 
-console.log(updateSchools[1]);//Object { name: "HB Woodlawn" }
-console.log(schools_2[1]);//Object { name: "Stranford" }
+//console.log(updateSchools[1]);//Object { name: "HB Woodlawn" }
+//console.log(schools_2[1]);//Object { name: "Stranford" }
 
 
 
+//Преобразование обьекта schools в массив schools
+
+const schools = {
+    "Yorktown" : 10,
+    "Washington & Lee" : 2,
+    "Wakefield" : 5
+}
+
+const schoolArray = Object.keys(schools).map(key =>
+    ({
+        name : key,
+        wins : schools[key]    
+    })
+)
+
+
+//console.log(schoolArray);//Array(3) [ {…}, {…}, {…} ]
+
+//[…]
+​//0: Object { name: "Yorktown", wins: 10 }
+//​1: Object { name: "Washington & Lee", wins: 2 }
+​//2: Object { name: "Wakefield", wins: 5 }
+​//length: 3
+
+
+//Преобразование массивов можно выполнить с применением Array.map и Array.filter
+//Превратить массивы в обьекты можно сочетая Object.keys и Array.map
+
+
+//Для преобразования массива в любое значение можно использовать ф reduce и reduceRight
+
+//В массиве из чисел нужно найти самое большое число
+
+const ages = [21,18,42,40,64,63,34];
+
+const maxAge = ages.reduce((max,age) =>{
+    console.log(`${age} > ${max} = ${age > max}`);
+    if(age > max){
+        return age
+    }else{
+        return max
+    }
+},0)
+
+const max = ages.reduce(
+    (max,value) => (value > max) ? value : max,
+    0
+);
+//console.log(max);//64
+//console.log("maxAge",maxAge);
+
+//21 > 0 = true
+//18 > 21 = false
+//42 > 21 = true
+//40 > 42 = false
+//64 > 42 = true
+//63 > 64 = false
+//34 > 64 = false
+//maxAge 64
+
+
+//Превращаем массив в обьект 
+
+const colors = [
+    {
+    id : "-xekare",
+    title : "red red",
+    rating : 3
+    },
+    {
+    id : "-jbwsof",
+    title : "big blue",
+    rating : 2
+    },
+    {
+    id : "-prigbj",
+    title : "grizzly grey",
+    rating : 5
+    },
+    {
+    id : "-ryhhsl",
+    title : "banana",
+    rating : 1
+    }
+];
+
+const hashColors = colors.reduce((hash,{id,title,rating}) =>{
+    hash[id] = {title,rating}
+    return hash
+},
+ {}
+)
+
+console.log(hashColors);
+//Object { "-xekare": {…}, "-jbwsof": {…}, "-prigbj": {…}, "-ryhhsl": {…} }
+
+//{…}
+//​"-jbwsof": Object { title: "big blue", rating: 2 }
+​//"-prigbj": Object { title: "grizzly grey", rating: 5 }
+​//"-ryhhsl": Object { title: "banana", rating: 1 }
+​//"-xekare": Object { title: "red red", rating: 3 }
+
+
+
+const colors = ["red","red","green","blue","green"];
+
+const distinctColors = colors.reduce((distinct,color) => 
+    (distinct.indexOf(color) !== -1) ?
+    distinct : 
+    [...distinct,color],
+    []
+)
+console.log(distinctColors);//Array(3) [ "red", "green", "blue" ]
+
+*/
 
