@@ -1174,3 +1174,74 @@ console.log(distinctColors);//Array(3) [ "red", "green", "blue" ]
 
 */
 
+//Функции высшего порядка
+
+//const invokelf = (condition,fnTrue,fnFalse) =>
+//(condition) ? fnTrue() : fnFalse();
+
+//const showWelcome = () =>
+//console.log("Welcome!!!");
+
+//const showUnauthorized = () =>
+//console.log("Unauthorized!!!");
+//invokelf(true,showWelcome,showUnauthorized);
+//invokelf(false,showWelcome,showUnauthorized);
+
+
+//Каррирование
+
+//Глава 2(Промиссы)
+/*
+const getFakeMembers = count => new Promise((resolve,reject) =>{
+    const api = `https://api.randomuser.me/?nat=US&result =${count}`
+    const request = new XMLHttpResult()
+    request.open("GET",api)
+    request.onload = () =>
+    (request.status === 200)?
+    resolve(JSON.parse(request.response).results):
+    reject(Error(request.statusText))
+    request.onneror = (err) => reject(err)
+    request.send()
+})
+getFakeMembers(5).then(
+   members => console.log(members),
+   err => console.error(
+       new Error("cannot load members from randmuser.me")
+   )
+)
+
+
+const userLogs = userName => message =>
+console.log(`${userName} -> ${message}`); 
+
+const log = userLogs("grandpa23");
+
+log("attempted to load 20 fake members");
+getFakeMembers(20).then(
+    members => log(`successfully loaded ${members.length} members`),
+    error => log("encountered an error loading members")
+)
+
+*/
+
+
+
+
+//Рекурсия
+/*
+const countdouwn = (value,fn) =>{
+    fn(value)
+    return(value > 0) ? countdouwn(value - 1,fn) : value
+}
+countdouwn(10,value => console.log(value));
+
+*/
+
+const countdouwn = (value,fndelay = 1000) =>{
+    fn(value)
+    return(value > 0) ? 
+    setTimeout(() => countdouwn(value - 1,fn),delay) : value
+}
+countdouwn(10,value => console.log(value));
+
+
